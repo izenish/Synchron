@@ -1,0 +1,7 @@
+[run]
+source= authen/, standup_card/, synchron/, syncup_board/, team/, users/,
+omit=
+    venv
+    */migrations/*
+    */tests/*
+    */__init__.py

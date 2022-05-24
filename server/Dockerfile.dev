@@ -1,0 +1,26 @@
+# pulling base image
+FROM python:3.9
+
+# set env varaiables 
+# This ensures our console output looks familier
+ENV PYTHONDONTWRITEBYTECODE 1
+#tells python not to write .pyc files
+ENV PYTHONUNBUFFERED 1
+
+#setting up workdir 
+WORKDIR /code
+
+#copy requirements into our workdir
+COPY requirements.txt .
+
+#install package from requirements.txt
+RUN pip install -r requirements.txt
+
+#copy rest of our source codes into workdir
+COPY ./ ./
+
+#run base command (start django server)
+CMD ["python","manage.py","runserver","0.0.0.0:8000"]
+
+
+
